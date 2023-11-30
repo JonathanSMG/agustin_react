@@ -1,0 +1,222 @@
+.cabeza {
+  background-color: #99ff3af8;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+body {
+  margin-top: 70px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+#logo {
+  width: 15%;
+  height: auto;
+}
+
+#navbar_buttons {
+  display: flex;
+}
+
+#nav-links button {
+  margin: 6px;
+  padding: 10px 20px;
+  background-color: #00cc33;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Bahnschrift Light", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  border: none; /* Agrega esta línea para quitar el borde */
+}
+
+#nav-links button:hover {
+  background-color: #3cff00;
+  color: #ffffff;
+}
+
+#tituloL {
+  border-left: 2px solid #000;
+  height: 9%;
+  position: absolute;
+  left: 26%;
+  transform: translateX(-50%);
+  top: 15.7%;
+}
+
+#tituloR {
+  border-left: 2px solid #000;
+  height: 9%;
+  position: absolute;
+  left: 74%;
+  transform: translateX(-50%);
+  top: 15.7%;
+}
+
+#titulo {
+  font-family: "Bahnschrift Light", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  flex: 1;
+  padding: 3px;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text {
+  flex: 1;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  background-color: #f2f2f2;
+}
+
+.text p {
+  font-size: 20px;
+  margin: 0;
+  font-family: "Candara Light", sans-serif;
+  text-align: justify;
+}
+
+.mission,
+.vision {
+  flex: 1;
+  padding: 40px;
+  height: 0;
+  padding-bottom: 25%;
+}
+
+.mission {
+  background-color: #00cc33;
+  margin-right: 90px;
+  margin-left: 90px;
+}
+
+.vision {
+  background-color: #ff0000;
+  margin-right: 90px;
+}
+
+.mission h2,
+.vision h2 {
+  font-size: 30px;
+  font-family: "Candara Light", sans-serif;
+  margin: 0;
+}
+
+.mission p,
+.vision p {
+  font-size: 18px;
+  text-align: justify;
+  font-family: "Candara Light", sans-serif;
+  color: #ffffff;
+}
+
+.objectives,
+.services {
+  flex: 1;
+  padding: 50px;
+  height: 0;
+  padding-bottom: 20%;
+  background-color: #f2f2f2;
+  text-align: justify;
+}
+
+.objectives h2,
+.services h2 {
+  font-size: 30px;
+  font-family: "Candara Light", sans-serif;
+  margin: 0;
+}
+
+.objectives ul,
+.services ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-family: "Bahnschrift Light", sans-serif;
+}
+
+.contact-map {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  font-family: "Bahnschrift Light", sans-serif;
+}
+
+.contact-info {
+  flex: 1;
+  padding: 30px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+.contact-info p {
+  text-align: justify;
+}
+
+.contact-info h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 10px;
+}
+
+.map-container {
+  flex: 1;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

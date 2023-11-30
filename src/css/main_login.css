@@ -1,0 +1,186 @@
+
+
+.cabeza-mainlogin {
+  background-color: #99ff3af8;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+.hidden {
+  display: none;
+}
+#navbar_mainlogin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+#logo-mainlogin {
+  width: 15%;
+  height: auto;
+}
+
+#navbar_buttons_mainlogin {
+  display: flex;
+}
+
+#nav-links-mainlogin button {
+  margin: 6px;
+  padding: 10px 20px;
+  background-color: #00cc33;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Bahnschrift SemiLight Condensed", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  border: none; /* Agrega esta línea para quitar el borde */
+}
+
+#nav-links-mainlogin button:hover {
+  background-color: #3cff00;
+  color: #ffffff;
+}
+
+
+.bajada {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+.bajada p {
+  margin: 0;
+  font-size: 14px;
+}
+#toggle-alumnos {
+  margin-left: 17px;
+  display: flex;
+  align-items: center;
+  background-color: #00cc33;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Bahnschrift Light", sans-serif;
+  font-size: 30px;
+}
+
+#img-est {
+  width: 100px;
+  margin-right: 10px;
+}
+
+#formulario-alumnos {
+  text-align: left;
+  max-width: 60%;
+  padding: 20px;
+  display: none;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#formulario-alumnos.active {
+  max-height: 300px;
+  padding: 20px;
+  opacity: 1;
+}
+
+h1 {
+  font-family: "Bahnschrift Light", sans-serif;
+}
+
+.registros-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 90px; 
+}
+
+
+.mainlogin-container h2 {
+  text-align: center;
+}
+.mainlogin-container img {
+  width: 98%;
+}
+
+.mainlogin-container {
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.mainlogin-form {
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#toggle-alumnos,
+#toggle-docentes,
+#toggle-asignaturas,
+#toggle-personal {
+  margin-left: 17px;
+  display: flex;
+  align-items: center;
+  background-color: #00cc33;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Bahnschrift Light", sans-serif;
+  font-size: 30px;
+}
+
+#formulario-alumnos,
+#formulario-estudiantes,
+#formulario-docentes,
+#formulario-asignaturas,
+#formulario-personal {
+  text-align: left;
+  margin: 0 auto;
+  font-family: "Bahnschrift Light", sans-serif;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+input {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}

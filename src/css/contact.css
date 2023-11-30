@@ -1,0 +1,129 @@
+
+header {
+  background-color: #99ff3af8;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+#logo {
+  width: 15%;
+  height: auto;
+}
+
+#navbar_buttons {
+  display: flex;
+}
+
+#nav-links a {
+  margin: 6px;
+  padding: 10px 20px;
+  background-color: #00cc33;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#nav-links a:hover {
+  background-color: #3cff00;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+}
+
+.contacto-container h2 {
+  text-align: center;
+}
+.contacto-container img {
+  width: 98%;
+}
+
+.contacto-container {
+  text-align: left;
+  margin: 40px;
+  max-width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contacto-form {
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#contacto-container h2 {
+  font-size: 30px;
+}
+
+.contacto-form {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 60%;
+  padding: 20px;
+}
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto-form label {
+  margin: 10px 0;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contacto-form button {
+  background-color: #00cc33;
+  color: #fff;
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Bahnschrift SemiLight Condensed", sans-serif;
+}
+
+.contacto-form button:hover {
+  background-color: #3cff00;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  font-family: "Bahnschrift SemiLight Condensed", sans-serif;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+#mensaje {
+  resize: none;
+}

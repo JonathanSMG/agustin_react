@@ -1,0 +1,170 @@
+
+header {
+  background-color: #99ff3af8;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+#logo {
+  width: 15%;
+  height: auto;
+}
+
+#navbar_buttons {
+  display: flex;
+}
+
+#nav-links a {
+  margin: 6px;
+  padding: 10px 20px;
+  background-color: #00cc33;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Bahnschrift SemiLight Condensed", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#nav-links a:hover {
+  background-color: #3cff00;
+  color: #ffffff;
+}
+
+.bajada {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+.bajada p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+#img-est {
+  width: 100px;
+  margin-right: 10px;
+}
+
+
+#formulario-alumnos.active {
+  max-height: 300px;
+  padding: 20px;
+  opacity: 1;
+}
+
+.titulo {
+  font-family: "Bahnschrift Light", sans-serif;
+  margin-top: 100px;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 90px; 
+}
+
+
+.contact-container h2 {
+  text-align: center;
+}
+.contact-container img {
+  width: 98%;
+}
+
+.contact-container {
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form {
+  text-align: left;
+  margin: 0 auto;
+  width: 40%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#toggle-difusion,
+#toggle-proyectos,
+#toggle-solicitudes,
+#toggle-horarios {
+  margin-left: 17px;
+  display: flex;
+  align-items: center;
+  background-color: #00cc33;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Bahnschrift Light", sans-serif;
+  font-size: 30px;
+}
+
+#registro-alumnos {
+  background-color: #00cc33;
+  color: #fff;
+  border: none;
+  padding: 10px 177px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Bahnschrift Light", sans-serif;
+}
+
+#registro-alumnos:hover {
+  background-color: #3cff00;
+}
+
+#formulario-solicitudes,
+#formulario-horarios,
+#formulario-difusion,
+#formulario-proyectos {
+  text-align: left;
+  margin: 0 auto;
+  font-family: "Bahnschrift Light", sans-serif;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+input,
+textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
