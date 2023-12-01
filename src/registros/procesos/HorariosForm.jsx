@@ -11,16 +11,9 @@ export const HorariosForm = ({ onSubmit, onClose }) => {
 
   const [horarioData, setHorarioData] = useState({ ...initialHorarioData });
 
-  useEffect(() => {
-    // Cargar datos almacenados en localStorage cuando el componente se monta
-    const storedData = localStorage.getItem('horarioData');
-    if (storedData) {
-      setHorarioData(JSON.parse(storedData));
-    }
-  }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setHorarioData({
       ...horarioData,
       [name]: value,
@@ -30,12 +23,22 @@ export const HorariosForm = ({ onSubmit, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Guardar datos en localStorage
-    localStorage.setItem('horarioData', JSON.stringify(horarioData));
+    // Obtener los horarios existentes del localStorage
+    const storedHorarios = JSON.parse(localStorage.getItem('horarioData')) || [];
+
+    // Agregar el nuevo horario a la lista
+    storedHorarios.push(horarioData);
+
+    // Actualizar el localStorage con la lista actualizada de horarios
+    localStorage.setItem('horarioData', JSON.stringify(storedHorarios));
 
     // Llamar a la función onSubmit con los datos del horario
     onSubmit(horarioData);
+
+    // Limpiar el formulario después de enviar
+    setHorarioData({ ...initialHorarioData });
   };
+
 
   return (
     <div id="formulario-horarios" class="contenido">

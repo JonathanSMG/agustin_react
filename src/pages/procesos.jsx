@@ -84,7 +84,7 @@ export const Procesos = (props) => {
       <h1 className="titulo" align="center">¡BIENVENIDO!</h1>
 
       <div className="main-container">
-        <div className="contact-container">
+        <div className="process-container">
           <button id="toggle-horarios" onClick={() => toggleForm('horarios')}>
    <img id="img-est" src={process.env.PUBLIC_URL + '/horario.png'} alt="horario" />
             GENERAR HORARIOS
@@ -92,7 +92,7 @@ export const Procesos = (props) => {
           {showHorariosForm && <HorariosForm onSubmit={handleHorariosSubmit} onClose={handleCloseForms} />}
         </div>
 
-        <div className="contact-form">
+        <div className="process-form">
           <button id="toggle-solicitudes" onClick={() => toggleForm('solicitudes')}>
             <img id="img-est" src={process.env.PUBLIC_URL + '/soli.png'} alt="Generar Solicitudes" />
             GENERAR SOLICITUDES
@@ -102,14 +102,14 @@ export const Procesos = (props) => {
       </div>
 
       <div className="main-container">
-        <div className="contact-container">
+        <div className="process-container">
           <button id="toggle-proyectos" onClick={() => toggleForm('proyectos')}>
              <img id="img-est" src={process.env.PUBLIC_URL + '/inv.png'} alt="Generar Proyectos de Investigación" />
             GENERAR PROYECTOS DE INVESTIGACIÓN
           </button>
           {showProyectosForm && <ProyectoForm onSubmit={handleProyectosSubmit} onClose={handleCloseForms} />}
         </div>
-        <div className="contact-form">
+        <div className="process-form">
         <button id="toggle-difusion" onClick={() => toggleForm('difusion')}>
            <img id="img-est" src={process.env.PUBLIC_URL + '/dif.png'} alt="Generar Difusión de Investigación" />
             GENERAR DIFUSIÓN DE INVESTIGACIÓN

@@ -7,6 +7,7 @@ import { Login } from "./pages/Login.jsx";
 import { MainLogin } from "./pages/mainLogin.jsx";
 import { Contacto } from "./pages/contacto.jsx";
 import { Procesos } from "./pages/procesos.jsx";
+import { Consultas } from "./pages/consultas.jsx";
 
 function App() {
   const [currentForm, setCurrentForm] = useState('main');
@@ -29,9 +30,10 @@ function App() {
       <Contacto onFormSwitch={toggleForm} />
       ) : currentForm === "procesos" ? (
       <Procesos onFormSwitch={toggleForm} />
-      ) : currentForm === "signup" ? (
-        
+      ) : currentForm === "signup" ? ( 
       <Signup onFormSwitch={toggleForm} />
+      ) : currentForm === "consultas" ? ( 
+      <Consultas onFormSwitch={toggleForm} />
     ) : (
        <Main onFormSwitch={toggleForm} />
         )}

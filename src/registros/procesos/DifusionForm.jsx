@@ -5,18 +5,13 @@ export const DifusionForm = ({ onSubmit, onClose }) => {
   const initialDifusionData = {
     tituloDifusion: '',
     mediosDifusion: '',
-    // Puedes agregar otros campos según sea necesario
   };
 
   const [difusionData, setDifusionData] = useState({ ...initialDifusionData });
 
-  useEffect(() => {
-    // Guardar datos en localStorage cuando difusionData cambie
-    localStorage.setItem('difusionFormData', JSON.stringify(difusionData));
-  }, [difusionData]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setDifusionData({
       ...difusionData,
       [name]: value,
@@ -25,8 +20,21 @@ export const DifusionForm = ({ onSubmit, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Obtener las difusiones existentes del localStorage
+    const storedDifusiones = JSON.parse(localStorage.getItem('difusionData')) || [];
+
+    // Agregar la nueva difusión a la lista
+    storedDifusiones.push(difusionData);
+
+    // Actualizar el localStorage con la lista actualizada de difusiones
+    localStorage.setItem('difusionData', JSON.stringify(storedDifusiones));
+
     // Llamar a la función onSubmit con los datos de la difusión
     onSubmit(difusionData);
+
+    // Limpiar el formulario después de enviar
+    setDifusionData({ ...initialDifusionData });
   };
 
   return (

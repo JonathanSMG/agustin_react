@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const ProyectoForm = ({ onSubmit, onClose }) => {
   const initialFormData = {
@@ -10,44 +10,46 @@ export const ProyectoForm = ({ onSubmit, onClose }) => {
     fechaFin: '',
   };
 
-  const [formData, setFormData] = useState({ ...initialFormData });
-
-  useEffect(() => {
-    // Cargar datos almacenados en localStorage cuando el componente se monta
-    const storedData = localStorage.getItem('proyectoFormData');
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-    }
-  }, []);
+  const [proyectoData, setProyectoData] = useState({ ...initialFormData });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+
+    setProyectoData({
+      ...proyectoData,
       [name]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes realizar cualquier validación adicional si es necesario
+
+    // Obtener los proyectos existentes del localStorage
+    const storedProyectos = JSON.parse(localStorage.getItem('proyectoData')) || [];
+
+    // Agregar el nuevo proyecto a la lista
+    storedProyectos.push(proyectoData);
+
+    // Actualizar el localStorage con la lista actualizada de proyectos
+    localStorage.setItem('proyectoData', JSON.stringify(storedProyectos));
 
     // Llamar a la función onSubmit con los datos del proyecto
-    onSubmit(formData);
+    onSubmit(proyectoData);
 
-    // Guardar datos en localStorage
-    localStorage.setItem('proyectoFormData', JSON.stringify(formData));
+    // Limpiar el formulario después de enviar
+    setProyectoData({ ...initialFormData });
   };
 
   return (
-    <div id="formulario-proyectos" class="contenido">
+    <div id="formulario-proyectos" className="contenido">
       <form onSubmit={handleSubmit}>
+        {/* Campos del formulario de proyectos */}
         <label htmlFor="tituloProyecto">Título del Proyecto:</label>
         <input
           type="text"
           id="tituloProyecto"
           name="tituloProyecto"
-          value={formData.tituloProyecto}
+          value={proyectoData.tituloProyecto}
           onChange={handleChange}
           required
         />
@@ -56,17 +58,17 @@ export const ProyectoForm = ({ onSubmit, onClose }) => {
         <textarea
           id="descripcion"
           name="descripcion"
-          value={formData.descripcion}
+          value={proyectoData.descripcion}
           onChange={handleChange}
           required
         ></textarea>
 
-        <label htmlFor="responsable">Responsable del Proyecto:</label>
+        <label htmlFor="responsable">Responsable:</label>
         <input
           type="text"
           id="responsable"
           name="responsable"
-          value={formData.responsable}
+          value={proyectoData.responsable}
           onChange={handleChange}
           required
         />
@@ -76,7 +78,7 @@ export const ProyectoForm = ({ onSubmit, onClose }) => {
           type="text"
           id="departamento"
           name="departamento"
-          value={formData.departamento}
+          value={proyectoData.departamento}
           onChange={handleChange}
           required
         />
@@ -86,23 +88,25 @@ export const ProyectoForm = ({ onSubmit, onClose }) => {
           type="date"
           id="fechaInicio"
           name="fechaInicio"
-          value={formData.fechaInicio}
+          value={proyectoData.fechaInicio}
           onChange={handleChange}
           required
         />
 
-        <label htmlFor="fechaFin">Fecha de Finalización:</label>
+        <label htmlFor="fechaFin">Fecha de Fin:</label>
         <input
           type="date"
           id="fechaFin"
           name="fechaFin"
-          value={formData.fechaFin}
+          value={proyectoData.fechaFin}
           onChange={handleChange}
           required
         />
 
-        <div className="form-buttons">
-          <button id="registro-alumnos" type="submit">GENERAR</button>
+        <div>
+          <button id="registro-proyectos" type="submit">
+            Guardar
+          </button>
         </div>
       </form>
     </div>

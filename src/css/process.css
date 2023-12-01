@@ -80,14 +80,14 @@ header {
 }
 
 
-.contact-container h2 {
+.process-container h2 {
   text-align: center;
 }
-.contact-container img {
+.process-container img {
   width: 98%;
 }
 
-.contact-container {
+.process-container {
   text-align: left;
   margin: 0 auto;
   width: 40%;
@@ -97,7 +97,7 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.contact-form {
+.process-form {
   text-align: left;
   margin: 0 auto;
   width: 40%;
