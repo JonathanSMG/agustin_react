@@ -21,24 +21,37 @@ export const ProyectoForm = ({ onSubmit, onClose }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // Obtener los proyectos existentes del localStorage
-    const storedProyectos = JSON.parse(localStorage.getItem('proyectoData')) || [];
+  // Validar campos obligatorios
+  if (!proyectoData.tituloProyecto || !proyectoData.responsable || !proyectoData.departamento || !proyectoData.fechaInicio) {
+    alert('Por favor, complete los campos obligatorios.');
+    return;
+  }
 
-    // Agregar el nuevo proyecto a la lista
-    storedProyectos.push(proyectoData);
+  // Validar fechas (puedes utilizar una librería como moment.js para una validación más robusta)
+  if (proyectoData.fechaInicio && proyectoData.fechaFin && proyectoData.fechaInicio > proyectoData.fechaFin) {
+    alert('La fecha de inicio no puede ser posterior a la fecha de fin.');
+    return;
+  }
 
-    // Actualizar el localStorage con la lista actualizada de proyectos
-    localStorage.setItem('proyectoData', JSON.stringify(storedProyectos));
+  // Obtener los proyectos existentes del localStorage
+  const storedProyectos = JSON.parse(localStorage.getItem('proyectoData')) || [];
 
-    // Llamar a la función onSubmit con los datos del proyecto
-    onSubmit(proyectoData);
+  // Agregar el nuevo proyecto a la lista
+  storedProyectos.push(proyectoData);
 
-    // Limpiar el formulario después de enviar
-    setProyectoData({ ...initialFormData });
-  };
+  // Actualizar el localStorage con la lista actualizada de proyectos
+  localStorage.setItem('proyectoData', JSON.stringify(storedProyectos));
+
+  // Llamar a la función onSubmit con los datos del proyecto
+  onSubmit(proyectoData);
+
+  // Limpiar el formulario después de enviar
+  setProyectoData({ ...initialFormData });
+};
+
 
   return (
     <div id="formulario-proyectos" className="contenido">

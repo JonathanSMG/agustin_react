@@ -28,31 +28,52 @@ export const Consultas = (props) => {
 
       <h1 style={{ textAlign: 'center' }}>¡BIENVENIDO AL PANEL DE CONSULTAS!</h1>
 
-      <div className="contact-container">
-      {/* Sección de Alumnos */}
+      <div className="consultas-container">
+  <div className="column">
+    {/* Sección de Alumnos */}
+    <div className="column-content">
       <AlumnoSection />
+    </div>
 
-      {/* Sección de Docentes */}
+    {/* Sección de Docentes */}
+    <div className="column-content">
       <DocenteSection />
+    </div>
 
-      {/* Sección de Asignaturas */}
+    {/* Sección de Asignaturas */}
+    <div className="column-content">
       <AsignaturaSection />
+    </div>
 
-      {/* Sección de Personal */}
+    {/* Sección de Personal */}
+    <div className="column-content">
       <PersonalSection />
+    </div>
+  </div>
 
-      {/* Sección de Solicitud */}
+  <div className="column">
+    {/* Sección de Solicitud */}
+    <div className="column-content">
       <SolicitudSection />
+    </div>
 
-      {/* Sección de Horarios */}
+    {/* Sección de Horarios */}
+    <div className="column-content">
       <HorarioSection />
+    </div>
 
-      {/* Sección de Proyectos de Investigación */}
+    {/* Sección de Proyectos de Investigación */}
+    <div className="column-content">
       <ProyectoSection />
+    </div>
 
-      {/* Sección de Difusión de Investigación */}
+    {/* Sección de Difusión de Investigación */}
+    <div className="column-content">
       <DifusionInvestigacionSection />
     </div>
+  </div>
+</div>
+
     </div>
   );
 }

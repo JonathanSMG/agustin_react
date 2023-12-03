@@ -27,25 +27,52 @@ export const PersonalForm = ({ onSubmit, onClose }) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-  
+    
       // Validaciones básicas
-      if (!formData.nombre || !formData.apellido || !formData.cedula || !formData.correo || !formData.telefono) {
+      if (
+        !formData.nombre ||
+        !formData.apellido ||
+        !formData.cedula ||
+        !formData.correo ||
+        !formData.telefono
+      ) {
         alert('Por favor, complete todos los campos obligatorios.');
         return;
       }
-  
+    
+      // Validación de formato de correo electrónico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.correo)) {
+        alert('Por favor, ingrese un correo electrónico válido.');
+        return;
+      }
+    
+      // Validación de formato de número de teléfono
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(formData.telefono)) {
+        alert('Por favor, ingrese un número de teléfono válido.');
+        return;
+      }
+    
+      // Validación de longitud de campos (nombre y apellido)
+      const minLength = 3;
+      if (formData.nombre.length < minLength || formData.apellido.length < minLength) {
+        alert(`Por favor, ingrese un nombre y apellido con al menos ${minLength} caracteres.`);
+        return;
+      }
+    
       // Guardar en localStorage
       const personalData = { ...formData };
       const storedPersonal = JSON.parse(localStorage.getItem('personal')) || [];
       storedPersonal.push(personalData);
       localStorage.setItem('personal', JSON.stringify(storedPersonal));
-  
+    
       // Limpiar el formulario
       setFormData({ ...initialFormData });
-  
+    
       // Mostrar alerta de registro exitoso
       alert('Registro de personal realizado correctamente.');
-  
+    
       // Cerrar el formulario
       onClose();
     };

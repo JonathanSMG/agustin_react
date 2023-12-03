@@ -21,28 +21,35 @@ export const AsignaturaForm = ({ onSubmit, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Validaciones básicas
     if (!formData.nombre || !formData.codigo || !formData.creditos || !formData.horas || !formData.profesor) {
       alert('Por favor, complete todos los campos obligatorios.');
       return;
     }
-
+  
+    // Validación de campos numéricos (código, créditos, horas)
+    if (isNaN(formData.codigo) || isNaN(formData.creditos) || isNaN(formData.horas)) {
+      alert('Por favor, ingrese valores numéricos válidos para código, créditos y horas.');
+      return;
+    }
+  
     // Guardar en localStorage
     const asignaturaData = { ...formData };
     const storedAsignaturas = JSON.parse(localStorage.getItem('asignaturas')) || [];
     storedAsignaturas.push(asignaturaData);
     localStorage.setItem('asignaturas', JSON.stringify(storedAsignaturas));
-
+  
     // Limpiar el formulario
     setFormData({ ...initialFormData });
-
+  
     // Mostrar alerta de registro exitoso
     alert('Registro de asignatura realizado correctamente.');
-
+  
     // Cerrar el formulario
     onClose();
   };
+  
 
   return (
     <div id="formulario-asignaturas" className="contenido">

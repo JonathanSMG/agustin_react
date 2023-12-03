@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const SolicitudForm = ({ onSubmit, onClose }) => {
   const initialSolicitudData = {
@@ -26,33 +26,44 @@ export const SolicitudForm = ({ onSubmit, onClose }) => {
     console.log('Simulando subida del archivo:', solicitudData.adjunto?.name);
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  // Modificar el valor de adjunto para que siempre sea un enlace de Google
-  const solicitudConEnlace = {
-    ...solicitudData,
-    adjunto: 'https://www.google.com', // Cambia esto según tu necesidad
-  };
-
-  // Obtener las solicitudes existentes del localStorage
-  const storedSolicitudes = JSON.parse(localStorage.getItem('solicitudFormData')) || [];
-
-  // Agregar la nueva solicitud a la lista
-  storedSolicitudes.push(solicitudConEnlace);
-
-  // Actualizar el localStorage con la lista actualizada de solicitudes
-  localStorage.setItem('solicitudFormData', JSON.stringify(storedSolicitudes));
-
-  // Llamar a la función onSubmit con los datos de la solicitud
-  onSubmit(solicitudConEnlace);
-
-  // Subir el archivo adjunto simulado
-  handleFileUpload();
-
-  // Limpiar el formulario después de enviar
-  setSolicitudData({ ...initialSolicitudData });
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    // Validar si al menos un campo está lleno
+    const isFormEmpty = Object.values(solicitudData).every((value) => !value);
+  
+    if (isFormEmpty) {
+      alert('Por favor, complete al menos un campo.');
+      return;
+    }
+  
+    // Validar si se ha seleccionado un archivo
+    if (!solicitudData.adjunto) {
+      alert('Por favor, seleccione un archivo adjunto.');
+      return;
+    }
+  
+    // Obtener las solicitudes existentes del localStorage
+    const storedSolicitudes = JSON.parse(localStorage.getItem('solicitudFormData')) || [];
+  
+    // Obtener solo el nombre del archivo adjunto
+    const nombreArchivo = solicitudData.adjunto.name;
+  
+    // Agregar la nueva solicitud a la lista con el nombre del archivo
+    storedSolicitudes.push({ ...solicitudData, adjunto: nombreArchivo });
+  
+    // Actualizar el localStorage con la lista actualizada de solicitudes
+    localStorage.setItem('solicitudFormData', JSON.stringify(storedSolicitudes));
+  
+    // Llamar a la función onSubmit con los datos de la solicitud
+    onSubmit({ ...solicitudData, adjunto: nombreArchivo });
+  
+    // Subir el archivo adjunto simulado
+    handleFileUpload();
+  
+    // Limpiar el formulario después de enviar
+    setSolicitudData({ ...initialSolicitudData });
+  };  
 
   return (
     <div id="formulario-solicitudes" className="contenido">

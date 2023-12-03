@@ -16,6 +16,29 @@
   display: flex;
 }
 
+.consultas-container {
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column {
+  flex-basis: 48%;
+  box-sizing: border-box;
+}
+
+.column-content {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Ajusta el espacio entre secciones según tu diseño */
+}
+
+
 #nav-links a {
   margin: 6px;
   padding: 10px 20px;
@@ -73,32 +96,36 @@ h1 {
   font-family: "Bahnschrift Light", sans-serif;
 }
 
-.contact-container {
-  font-family: "Bahnschrift Light", sans-serif;
 
-  text-align: left;
-  margin: 0 auto;
-  width: 70%;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.alumno-section {
+  margin-top: 20px; /* Ajusta el margen superior según tu diseño */
 }
 
-.consulta-table {
-  width: 100%;
+table {
+  width: 50%;
+  margin: 10px auto; /* Centra la tabla con un margen superior de 10px */
   border-collapse: collapse;
 }
 
-.consulta-table th,
-.consulta-table td {
-  border: 1px solid #000;
-  padding: 8px;
-}
-
-.consulta-table th {
-  background-color: #f2f2f2;
+th, td {
+  padding: 9px; /* Reducir el espacio interno */
+  font-size: 12px; /* Tamaño de fuente más pequeño */
+  text-align: left;
+  border: 1px solid #ddd;
 }
 th {
-  font-weight: normal;
+  background-color: #f5f5f5;
+}
+
+button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 4px 8px; /* Reducir el espacio del botón */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px; /* Tamaño de fuente más pequeño para el botón */
+}
+button:hover {
+  background-color: #d32f2f; /* Cambia el color al pasar el ratón sobre el botón */
 }

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const DifusionForm = ({ onSubmit, onClose }) => {
   const initialDifusionData = {
@@ -20,19 +20,25 @@ export const DifusionForm = ({ onSubmit, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
+    // Validar campos obligatorios
+    if (!difusionData.tituloDifusion || !difusionData.mediosDifusion) {
+      alert('Por favor, complete los campos obligatorios.');
+      return;
+    }
+  
     // Obtener las difusiones existentes del localStorage
     const storedDifusiones = JSON.parse(localStorage.getItem('difusionData')) || [];
-
+  
     // Agregar la nueva difusión a la lista
     storedDifusiones.push(difusionData);
-
+  
     // Actualizar el localStorage con la lista actualizada de difusiones
     localStorage.setItem('difusionData', JSON.stringify(storedDifusiones));
-
+  
     // Llamar a la función onSubmit con los datos de la difusión
     onSubmit(difusionData);
-
+  
     // Limpiar el formulario después de enviar
     setDifusionData({ ...initialDifusionData });
   };
