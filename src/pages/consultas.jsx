@@ -26,7 +26,7 @@ export const Consultas = (props) => {
       </nav>
     </header>
 
-      <h1 style={{ textAlign: 'center' }}>¡BIENVENIDO AL PANEL DE CONSULTAS!</h1>
+      <h1 className="titulo" style={{ textAlign: 'center' }}>¡BIENVENIDO AL PANEL DE CONSULTAS!</h1>
 
       <div className="consultas-container">
   <div className="column">
@@ -73,7 +73,11 @@ export const Consultas = (props) => {
     </div>
   </div>
 </div>
-
+<footer className='bajada'>
+        <div className="footer-bottom">
+          <p>&copy; 2023 Vicerrectorado de Investigación, ULEAM. Todos los derechos reservados.</p>
+        </div>
+      </footer>
     </div>
   );
 }
