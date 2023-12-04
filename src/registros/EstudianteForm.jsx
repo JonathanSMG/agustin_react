@@ -30,25 +30,52 @@ export const EstudianteForm = ({ onSubmit, onClose }) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-  
+    
       // Validaciones básicas
       if (!formData.nombre || !formData.apellido || !formData.cedula || !formData.correo || !formData.celular) {
         alert('Por favor, complete todos los campos obligatorios.');
         return;
       }
-  
+    
+      // Validación de formato de correo electrónico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.correo)) {
+        alert('Por favor, ingrese un correo electrónico válido.');
+        return;
+      }
+    
+      // Validación de formato de número de celular
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(formData.celular)) {
+        alert('Por favor, ingrese un número de celular válido.');
+        return;
+      }
+    
+      // Validación de longitud de campos (nombre y apellido)
+      const minLength = 3;
+      if (formData.nombre.length < minLength || formData.apellido.length < minLength) {
+        alert(`Por favor, ingrese un nombre y apellido con al menos ${minLength} caracteres.`);
+        return;
+      }
+    
+      // Verificación de campo numérico (cedula)
+      if (isNaN(formData.cedula)) {
+        alert('Por favor, ingrese una cédula válida.');
+        return;
+      }
+    
       // Guardar en localStorage
       const estudianteData = { ...formData };
       const storedEstudiantes = JSON.parse(localStorage.getItem('estudiantes')) || [];
       storedEstudiantes.push(estudianteData);
       localStorage.setItem('estudiantes', JSON.stringify(storedEstudiantes));
-  
+    
       // Limpiar el formulario
       setFormData({ ...initialFormData });
-  
+    
       // Mostrar alerta de registro exitoso
       alert('Estudiante registrado correctamente.');
-  
+    
       // Cerrar el formulario
       onClose();
     };
